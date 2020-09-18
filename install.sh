@@ -1,5 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/sh
 
+# OhMyZSH Configs
 export CHSH=yes
 export RUNZSH=no
 
