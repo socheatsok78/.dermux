@@ -75,3 +75,5 @@ main() {
 
 	setup_dotfile
 }
+
+main "$@"
