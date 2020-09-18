@@ -2,8 +2,8 @@
 
 # Default settings
 ZSH_RC=~/.zshrc
-TERMUX_DOTFILE=${TERMUX_DOTFILE:-~/.termux}
-REPO=${REPO:-socheatsok78/.termux}
+TERMUX_DOTFILE=${TERMUX_DOTFILE:-~/.dermux}
+REPO=${REPO:-socheatsok78/.dermux}
 REMOTE=${REMOTE:-https://github.com/${REPO}.git}
 BRANCH=${BRANCH:-master}
 
