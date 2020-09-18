@@ -2,7 +2,7 @@
 
 # Default settings
 ZSH_RC=~/.zshrc
-TERMUX_DOTFILE=${TERMUX_DOTFILE:-~/.dermux}
+DERMUX=${DERMUX:-~/.dermux}
 REPO=${REPO:-socheatsok78/.dermux}
 REMOTE=${REMOTE:-https://github.com/${REPO}.git}
 BRANCH=${BRANCH:-master}
@@ -46,7 +46,7 @@ setup_dotfile() {
 	# precedence over umasks except for filesystems mounted with option "noacl".
 	umask g-w,o-w
 
-	echo "${BLUE}Cloning .termux...${RESET}"
+	echo "${BLUE}Cloning .dermux...${RESET}"
 
     command_exists git || {
 		error "git is not installed"
@@ -57,8 +57,8 @@ setup_dotfile() {
 		-c fsck.zeroPaddedFilemode=ignore \
 		-c fetch.fsck.zeroPaddedFilemode=ignore \
 		-c receive.fsck.zeroPaddedFilemode=ignore \
-		--depth=1 --branch "$BRANCH" "$REMOTE" "$TERMUX_DOTFILE" || {
-		error "git clone of .termux repo failed"
+		--depth=1 --branch "$BRANCH" "$REMOTE" "$DERMUX" || {
+		error "git clone of .dermux repo failed"
 		exit 1
 	}
 
