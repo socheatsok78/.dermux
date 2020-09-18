@@ -1,0 +1,2 @@
+executable:
+	@chmod +x **/*.sh
