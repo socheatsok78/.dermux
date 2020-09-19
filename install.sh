@@ -19,6 +19,10 @@ underline() {
 	echo "$(printf '\033[4m')$@$(printf '\033[24m')"
 }
 
+hai() {
+	echo "${BLUE} ---> ${RESET} $@"
+}
+
 setup_color() {
 	# Only use colors if connected to a terminal
 	if [ -t 1 ]; then
@@ -55,7 +59,7 @@ setup_dotfile() {
 		exit 1
 	}
 
-	echo "${BLUE}Cloning .dermux...${RESET}"
+	hai "Cloning .dermux..."
 
 	git clone -c core.eol=lf -c core.autocrlf=false \
 		-c fsck.zeroPaddedFilemode=ignore \
@@ -69,6 +73,24 @@ setup_dotfile() {
 	echo
 }
 
+setup_antigen() {
+	hai "Installing antigen..."
+
+	if [ -f "$DERMUX/antigen.zsh" ]; then
+		return
+	fi
+
+	curl -L git.io/antigen > $DERMUX/antigen.zsh
+}
+
+setup_system() {
+	hai "Installing curl..."
+	pkg install -y libcurl curl
+
+	hai "Installing zsh..."
+	pkg install -y zsh
+}
+
 main() {
 	setup_color
 
@@ -77,7 +99,9 @@ main() {
 		exit 1
 	fi
 
+	setup_system
 	setup_dotfile
+	setup_antigen
 
 	printf "$GREEN"
 	cat <<-'EOF'
