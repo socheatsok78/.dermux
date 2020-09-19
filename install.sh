@@ -46,17 +46,16 @@ setup_dotfile() {
 	# precedence over umasks except for filesystems mounted with option "noacl".
 	umask g-w,o-w
 
-	echo "${BLUE}Cloning .dermux...${RESET}"
-
 	if [ -d "$DERMUX" ]; then
 		return 0
 	fi
-
 
 	command_exists git || {
 		error "git is not installed"
 		exit 1
 	}
+
+	echo "${BLUE}Cloning .dermux...${RESET}"
 
 	git clone -c core.eol=lf -c core.autocrlf=false \
 		-c fsck.zeroPaddedFilemode=ignore \
@@ -86,8 +85,7 @@ main() {
 		    ____/ /__  _________ ___  __  ___  __
 		   / __  / _ \/ ___/ __ `__ \/ / / / |/_/
 		 _/ /_/ /  __/ /  / / / / / / /_/ />  <
-		(_)__,_/\___/_/  /_/ /_/ /_/\__,_/_/|_|
-												....is now installed!
+		(_)__,_/\___/_/  /_/ /_/ /_/\__,_/_/|_|   ....is now installed!
 
 	EOF
 	printf "$RESET"
