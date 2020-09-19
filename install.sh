@@ -20,7 +20,7 @@ underline() {
 }
 
 hai() {
-	echo " ---> ${BLUE}$@${RESET}"
+	echo " ---> $@"
 }
 
 setup_color() {
@@ -85,10 +85,10 @@ setup_antigen() {
 
 setup_system() {
 	hai "Installing curl..."
-	pkg install -y libcurl curl
+	pkg install -y libcurl curl >/dev/null 2>&1
 
 	hai "Installing zsh..."
-	pkg install -y zsh
+	pkg install -y zsh >/dev/null 2>&1
 }
 
 main() {
