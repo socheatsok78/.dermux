@@ -48,7 +48,12 @@ setup_dotfile() {
 
 	echo "${BLUE}Cloning .dermux...${RESET}"
 
-    command_exists git || {
+	if [ -d "$DERMUX" ]; then
+		return 0
+	fi
+
+
+	command_exists git || {
 		error "git is not installed"
 		exit 1
 	}
@@ -74,6 +79,18 @@ main() {
 	fi
 
 	setup_dotfile
+
+	printf "$GREEN"
+	cat <<-'EOF'
+		         __
+		    ____/ /__  _________ ___  __  ___  __
+		   / __  / _ \/ ___/ __ `__ \/ / / / |/_/
+		 _/ /_/ /  __/ /  / / / / / / /_/ />  <
+		(_)__,_/\___/_/  /_/ /_/ /_/\__,_/_/|_|
+												....is now installed!
+
+	EOF
+	printf "$RESET"
 }
 
 main "$@"
