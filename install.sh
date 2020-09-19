@@ -20,7 +20,7 @@ underline() {
 }
 
 hai() {
-	echo "${BLUE} ---> ${RESET} $@"
+	echo " ---> ${BLUE}$@${RESET}"
 }
 
 setup_color() {
